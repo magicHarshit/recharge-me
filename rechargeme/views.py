@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 from transactions.models import PhoneNumber
 
@@ -13,6 +14,7 @@ def signup(request):
     return render_to_response('login.html', {'form': signupform},
         context_instance=RequestContext(request))
 
+@login_required(login_url='/login/')
 def showmynumbers(request):
     all_numbers = PhoneNumber.objects.filter(added_by=request.user)
     return render_to_response('mynumbers.html', {'trans': all_numbers} ,

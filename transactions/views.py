@@ -1,12 +1,13 @@
-from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 from transactions.models import PhoneNumber
 from rechargeproviders.models import RechargeApi
 from rechargeproviders.views import rechareresponse
 
+@login_required(login_url='/login/')
 def recharge(request, ph_id):
     ph_numb = get_object_or_404(PhoneNumber, pk=int(ph_id))
     all_apis = RechargeApi.objects.all()

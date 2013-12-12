@@ -34,7 +34,7 @@ def check_input(phone_numbers):
     if phone_numbers:
         ph_numbers_list = phone_numbers.split(',')
         for ph_number in ph_numbers_list:
-            if not ph_number.isdigit() and len(ph_number)!=10:
+            if not ph_number.isdigit() or len(ph_number)!=10:
                 return
         return True
 

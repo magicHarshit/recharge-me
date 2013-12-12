@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>{% if message %}Log Out Page{% else %}Login or Signup here{% endif %}</h2>
+    <hr>
+    {% if message %}
+     {{ message }}.
+     <a href="/login/">| Log in again</a>
+    {% else %}
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="Login">
+        <a href='/signup'>Signup</a>
+        </form>
+    {% endif %}
+</body>
+</html>

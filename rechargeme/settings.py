@@ -13,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'recharge',                      # Or path to database file if using sqlite3.
+        'NAME': 'rech2rg1',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -123,7 +123,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'rechargeapi'
+    'rechargeproviders',
+    'operators',
+    'transactions'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -154,3 +156,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = '/'

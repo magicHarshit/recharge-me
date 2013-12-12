@@ -4,11 +4,17 @@
 </head>
 <body>
     <h2>Add Phone numbers here to recharge them.</h2>
+    {% if user.is_authenticated %}
+        Welcome {{ user }} <a href="/profile/">(Profile)</a> | <a href='/logout'>Logout</a>
+    {% endif %}
     <hr>
+    {{ message }}
     <form method="POST">
+        {% csrf_token %}
         <label for="phnumbers">Phone numbers:</label>
         <textarea name="phnumbers"></textarea>
         (Multiple numbers can be written by seperating them with commas.)
+        <input type="submit" name="Recharge Now">
     </form>
 </body>
 </html>

@@ -23,7 +23,8 @@ def home(request):
                         added_by=request.user,
                         operator=which_operator()))
             PhoneNumber.objects.bulk_create(ph_numb_objects)
-            UserAccount.objects.create(account=request.user)
+            if not request.user.useraccount:
+                UserAccount.objects.create(account=request.user)
             return HttpResponseRedirect('/profile/mynumbers/')
         message = 'Please enter correct phone numbers only'
     return render_to_response('home.html',{'message':message},

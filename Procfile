@@ -1,1 +1,1 @@
-web: gunicorn gschooldev.wsgi:application
+web: gunicorn rechargeme.wsgi:application

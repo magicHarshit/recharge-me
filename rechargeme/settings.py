@@ -1,9 +1,8 @@
 import dj_database_url, os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -20,7 +19,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -69,7 +68,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '%s/rechargeme/static' % BASE_PATH,
+    '%s/rechargeme/staticfiles' % BASE_PATH,
 )
 
 # List of finder classes that know how to find static files in

@@ -29,12 +29,12 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-controller="MainCtrl">
       <div class="header">
-        <h2 style="text-align:center">{{ pane.title }}</h2>
+        <h2 style="text-align:center">Recharge Station</h2>
       </div>
       <tabs>
         <pane
           active="pane.active"
-          heading="{{pane.title}}"
+          heading="{[{pane.title}]}"
           ng-repeat="pane in panes"
         >
         <div ng-include="pane.content"></div>

@@ -1,6 +1,6 @@
 import dj_database_url, os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

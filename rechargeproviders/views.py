@@ -27,10 +27,11 @@ def home(request):
                 UserAccount.objects.create(account=request.user)
             return HttpResponseRedirect('/profile/mynumbers/')
         message = 'Please enter correct phone numbers only'
-    return render_to_response('home.html',{'message':message},
+    return render_to_response('index.html',{'message':message},
                 context_instance=RequestContext(request))
 
 def check_input(phone_numbers):
+    import pdb; pdb.set_trace()
     if phone_numbers:
         ph_numbers_list = phone_numbers.split(',')
         for ph_number in ph_numbers_list:

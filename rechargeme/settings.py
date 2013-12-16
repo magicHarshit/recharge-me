@@ -102,6 +102,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'rechargeme.urls'
 
+
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'rechargeme.wsgi.application'
 
@@ -157,6 +158,6 @@ LOGGING = {
 LOGIN_REDIRECT_URL = '/'
 
 try:
-    from settings_local import *
+    from setting_local import *
 except:
     pass

@@ -1,8 +1,0 @@
-<hr>
-<h3>Currently you have: Rs {{current_balance}}</h3>
-<form method="POST">
-    {% csrf_token %}
-    <label>Add Money to add in your account</label>
-    <input type='text' name='balance'/>
-    <input type='submit'>
-</form>

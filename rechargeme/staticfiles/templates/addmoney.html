@@ -1,0 +1,22 @@
+Add Money HTML
+<br>
+
+My Balance = {{{account.0.balance}}}
+
+<br>
+
+Add Money to your Account:
+<form name="myForm">
+    <input type="number" name="balance" ng-model="balance" placeholder="Money" required>
+
+
+    <span class="error" ng-show="myForm.balance.$error.required">
+    Required!</span>
+    <span class="error" ng-show="myForm.balance.$error.number">
+    Not valid number!</span>
+    <br>
+    <button ng-click="addMoney()">Add Money</button>
+
+</form>
+
+<h5>{{{new_balance}}}</h5>

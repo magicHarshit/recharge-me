@@ -1,0 +1,17 @@
+{{{number.phnumber}}}
+
+<form name="myForm">
+
+    <input type="number" name="recharge" ng-model="recharge_amount" placeholder="Recharge Amount" required>
+
+    <span class="error" ng-show="myForm.recharge.$error.required">
+    Required!</span>
+    <span class="error" ng-show="myForm.recharge.$error.number">
+    Not valid number!</span>
+    <br>
+
+    <button ng-click="recharge(number)">Add Money</button>
+    <br>
+</form>
+
+{{{status}}}

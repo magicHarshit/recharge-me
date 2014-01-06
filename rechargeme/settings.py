@@ -1,4 +1,5 @@
-import dj_database_url, os
+# import dj_database_url
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -10,7 +11,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {'default': dj_database_url.config()}
+# DATABASES = {'default': dj_database_url.config()}
 EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
 EMAIL_HOST= 'smtp.sendgrid.net'
 EMAIL_PORT = 587
@@ -120,9 +121,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'rechargeproviders',
-    'operators',
-    'transactions'
+    'Information',
+    'rest_framework',
+    # 'rechargeproviders',
+    # 'operators',
+    # 'transactions'
+
 )
 
 # A sample logging configuration. The only tangible logging
@@ -156,7 +160,30 @@ LOGGING = {
 
 LOGIN_REDIRECT_URL = '/'
 
-try:
-    from setting_local import *
-except:
-    pass
+# try:
+#     from setting_local import *
+# except:
+#     pass
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'STORAGE_ENGINE': 'INNODB',
+        'NAME': 'recharge',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+  "social_auth.context_processors.social_auth_by_type_backends",
+  'django.contrib.auth.context_processors.auth',
+  'django.core.context_processors.static',
+)
+
+AUTHENTICATION_BACKENDS = (
+  # 'social_auth.backends.contrib.github.GithubBackend',
+  'django.contrib.auth.backends.ModelBackend',
+)
